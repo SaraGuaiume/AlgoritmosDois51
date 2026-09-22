@@ -1,0 +1,1 @@
+//SEIS - Leia 10 números inteiros. Informe o menor valor encontrado e a posição em que ele aparece no vetor.
