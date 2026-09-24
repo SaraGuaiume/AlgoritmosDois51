@@ -1,10 +1,12 @@
-// SETE - Leia tamanVetor números inteiros e armazene-os em um vetor. Ao final, informe quantos números são pares e quantos são ímpares.
+// SETE - Leia tamanhoVetor números inteiros e armazene-os em um vetor. Ao final, informe quantos números são pares e quantos são ímpares.
 
 #include <stdio.h>
 
- void armazenarValores(int vetorValores[tamaVetor]) {
+const int tamanhoVetor = 15;
+
+ void armazenarValores(int vetorValores[tamanhoVetor]) {
     for (int i = 0; i < tamanhoVetor; i++) {
-        printf("Digite o valor %d: ", i);
+        printf("Digite o valor %d: ", i+1);
         scanf("%d", &vetorValores[i]);
     }
    
@@ -20,8 +22,7 @@ int classificarParImpar(int vetorValores[tamanhoVetor], int contarPares) {
 }
 
 int main() {
-    int tamanhoVetor = tamanVetor;
-    int vetor[tamanhVetor];
+    int vetor[tamanhoVetor];
     int contarPares = 0;
     int qtdPares = 0;
     int qtdImpares = 0;
@@ -29,6 +30,7 @@ int main() {
     armazenarValores(vetor);
     qtdPares = classificarParImpar(vetor, contarPares);
     qtdImpares = tamanhoVetor - qtdPares;
-    printf("A quantidade de numeros pares e impares eh %d e %d, respactivamente", qtdPares, qtdImpares);
+    printf("A quantidade de numeros pares e impares eh %d, %d, respactivamente", qtdPares, qtdImpares);
 
 }
+ 

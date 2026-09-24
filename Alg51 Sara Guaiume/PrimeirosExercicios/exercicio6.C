@@ -1,18 +1,20 @@
-//SEIS - Leia 10 números inteiros. Informe o menor valor encontrado e a posição em que ele aparece no vetor.
+//SEIS - Leia tamanhoVetor números inteiros. Informe o menor valor encontrado e a posição em que ele aparece no vetor.
 
 #include <stdio.h>
 
-void armazenarValores(float vetorValores[10]) {
-    for (int i = 0; i < 10; i++) {
+const int tamanhoVetor = 10;
+
+void armazenarValores(int vetorValores[tamanhoVetor]) {
+    for (int i = 0; i < tamanhoVetor; i++) {
         printf("Digite o valor %d: ", i);
-        scanf("%f", &vetorValores[i]);
+        scanf("%d", &vetorValores[i]);
     
     }
 }
 
-float encontrarMenor(float vetorValores[10], float menor) {
+float encontrarMenor(int vetorValores[tamanhoVetor], int menor) {
     int index = 0;
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < tamanhoVetor; i++) {
         if (vetorValores[i] < menor) { 
             menor = vetorValores[i];
             index = i;
@@ -22,18 +24,13 @@ float encontrarMenor(float vetorValores[10], float menor) {
 }
 
 int main() {
-    float valores[10];
-    float menor = 0;
-    int posicao = 0;
-
+    int valores[tamanhoVetor];
     armazenarValores(valores);
+    int menor = valores[0];
     
-    menor = valores[0];
-    posicao = encontrarMenor(valores, menor);
-
+    int posicao = encontrarMenor(valores, menor);
     menor = valores[posicao];
-
-    printf("O menor valor eh %f. Ele ocupa a posicao %d", menor, posicao);
+    printf("O menor valor eh %d. Ele ocupa a posicao %d", menor, posicao);
     
     
 
