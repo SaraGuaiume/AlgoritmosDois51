@@ -14,6 +14,7 @@ float encontrarMenor(float vetorValores[10], float menor) {
     int index = 0;
     for (int i = 0; i < 10; i++) {
         if (vetorValores[i] < menor) { 
+            menor = vetorValores[i];
             index = i;
         }
     }
