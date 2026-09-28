@@ -4,24 +4,28 @@
 
 #define tamanhoVetor 10
 
-int vetorValores;
-int numeroInteiro;
-int vetorMultiplicado;
+int vetorValores[tamanhoVetor];
+int numeroInteiro = 0;
+int vetorMultiplicado[tamanhoVetor];
 
 void armazenarValores() {
+    printf("Digite um valor: ");
+    scanf("%d", &numeroInteiro);
+
     for (int i = 0; i < tamanhoVetor; i++) {
-        printf("Digite o numero %d: ", i);
-        scanf("%d", &vetorValores);
+        printf("Digite o numero %d: ", i+1);
+        scanf("%d", &vetorValores[i]);
     }
 }
 
-void MultiplicarVetor() {
+void multiplicarVetor() {
     for (int i = 0; i < tamanhoVetor; i++) {
         vetorMultiplicado[i] = vetorValores[i] * numeroInteiro;
-        printf("%d", vetorMultiplicado[i]);
+        printf("%d, ", vetorMultiplicado[i]);
     }
 }
 
 int main() {
-    armazenarValores
+    armazenarValores();
+    multiplicarVetor();
 }
