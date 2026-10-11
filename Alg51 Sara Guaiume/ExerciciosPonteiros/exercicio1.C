@@ -24,11 +24,10 @@ void armazenarTemperaturas() {
 
     for (int i =0; i < qtdSensores; i++){
         printf("Digite o codigo %d: ", i+1);
-        scanf("%d", sensor[i].codigo);
+        scanf("%d", &sensor[i].codigo);
 
         printf("Digite a temperatura %d: ", i+1);
-        sacnf("%f", sensor[i].temperatura);
-
+        scanf("%f", &sensor[i].temperatura);
     }
 }
 
@@ -48,24 +47,22 @@ float calcularMedia() {
 }
 
 float apresentarMaiorTemperatura() {
-    float maior = sensor[1].temperatura;
+    float maior = sensor[0].temperatura;
     for (int i = 0; i < qtdSensores; i++) {
         if (maior < sensor[i].temperatura) {
             maior = sensor[i].temperatura;
         }
     }
-
     return maior;
 }
 
 float apresentarMenorTemperatura() {
-    float menor = sensor[1].temperatura;
+    float menor = sensor[0].temperatura;
     for (int i = 0; i < qtdSensores; i++) {
         if (menor > sensor[i].temperatura) {
             menor = sensor[i].temperatura;
         }
     }
-
     return menor;
 }
 
@@ -75,9 +72,9 @@ void adcionarSensores() {
     int qtdTotal = 0;
 
     printf("Voce deseja adcionar novos sensores? S/N");
-    scanf("%c", &resposta);
+    scanf(" %c", &resposta);
 
-    if (resposta == "s" || resposta == "S") {
+    if (resposta == 's' || resposta == 'S') {
         printf("Quantos sensores vc planeja adcionar? ");
         scanf("%d", &qtdNovos);
 
@@ -85,7 +82,7 @@ void adcionarSensores() {
 
         struct sensores *totalSensores = realloc(
             sensor, //para saber oq ja tem e arrumar mais espaco de memoria
-            (qtdTotal * sizeof(struct sensores)); // pra saber quanto tem q adc
+            qtdTotal * sizeof(struct sensores) // pra saber quanto tem q adc
         );
 
         if (totalSensores == NULL) {
@@ -94,7 +91,6 @@ void adcionarSensores() {
         }
 
         sensor = totalSensores;
-
         for (int i = qtdSensores; i < qtdTotal; i++) {
             printf("Digite o codigo do sensor %d: ", i + 1);
             scanf("%d", &sensor[i].codigo);
@@ -106,7 +102,7 @@ void adcionarSensores() {
         qtdSensores = qtdTotal;
     }
 
-    else if (resposta == "n" || resposta == "N") {
+    else if (resposta == 'n' || resposta == 'N') {
         printf("ok!");
     }
 }
@@ -128,5 +124,11 @@ int main() {
     printf("menor temperatura: %f", menorTemperatura);
     adcionarSensores();
     mostrarTemperaturas();
+    mediaTemperaturas = calcularMedia();
+    maiorTemperatura = apresentarMaiorTemperatura();
+    menorTemperatura = apresentarMenorTemperatura();
+    printf("media: %f", mediaTemperaturas);
+    printf("maior temperatura: %f", maiorTemperatura);
+    printf("menor temperatura: %f", menorTemperatura);
     liberarMemoria();
 }
