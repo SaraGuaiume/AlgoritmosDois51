@@ -131,4 +131,6 @@ int main() {
     printf("maior temperatura: %f", maiorTemperatura);
     printf("menor temperatura: %f", menorTemperatura);
     liberarMemoria();
+
+    return 0;
 }
