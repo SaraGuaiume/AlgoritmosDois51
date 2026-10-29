@@ -21,6 +21,7 @@ int main()
 
     if (novo == NULL) 
     {
+        free(valores);
         return -1;
     }
 
