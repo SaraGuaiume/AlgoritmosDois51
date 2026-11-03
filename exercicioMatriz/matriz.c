@@ -207,5 +207,6 @@ int main() {
     atualizarTemperatura();
 
     exibirTemperaturas();
+    
     return 0;
 }
